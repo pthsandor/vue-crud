@@ -113,7 +113,7 @@ data() {
    this.myModel = true;
   },
  fetchData(id){
-   axios.post('action.php', {
+   axios.post('http://localhost:8080/appvue/src/Api/read.php', {
     action:'fetchSingle',
     id:id
    }).then(function(response){
