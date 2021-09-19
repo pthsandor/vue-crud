@@ -82,11 +82,11 @@ data() {
   },
   
   methods:{
-       fetchAllData:function(){
+       fetchAllData(){
    axios.post('http://localhost:8080/appvue/src/Api/read.php', {
     action:'fetchall'
-   }).then(function(response){
-    app.allData = response.data;
+   }).then((res)=>{
+    app.allData = res.data;
    });
   },
     deleteUser(userid){
@@ -116,17 +116,17 @@ data() {
    axios.post('http://localhost:8080/appvue/src/Api/read.php', {
     action:'fetchSingle',
     id:id
-   }).then(function(response){
-    this.first_name = response.data.first_name;
-    this.last_name = response.data.last_name;
-    this.hiddenId = response.data.id;
+   }).then((res)=>{
+    this.first_name = res.data.first_name;
+    this.last_name = res.data.last_name;
+    this.hiddenId = res.data.id;
     this.myModel = true;
     this.actionButton = 'Update';
     this.dynamicTitle = 'Edit Data';
    });
   },
 
-     created:function(){
+     created(){
   this.fetchAllData();
  },
 }
